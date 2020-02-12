@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+
+        android:id="@+id/movie_cover"/>
+
+    <TextView
+        android:ellipsize="end"
+        android:id="@+id/movie_title"
+        tools:text="The Amazing Spider Man"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/movie_cover"
+        app:layout_constraintTop_toTopOf="@id/movie_cover"
+        app:layout_constraintBottom_toTopOf="@id/movie_release_date"
+        />
+
+    <TextView
+        android:id="@+id/movie_release_date"
+        tools:text="25/03/2008"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/movie_title"
+        app:layout_constraintLeft_toRightOf="@id/movie_cover"
+        app:layout_constraintBottom_toBottomOf="@id/movie_cover"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
