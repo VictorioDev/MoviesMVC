@@ -25,7 +25,7 @@ interface MoviesServiceApi {
     }
 
 
-    @GET("/movie?api_key=d9a39e5d5e7d35b5932746b2ed50e761")
+    @GET("movie?api_key=d9a39e5d5e7d35b5932746b2ed50e761")
 
     fun getAllMovies() : Observable<MoviesListResponse>
 

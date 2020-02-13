@@ -1,8 +1,9 @@
-package com.example.moviesmvc
+package com.example.moviesmvc.common.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.moviesmvc.movieslist.MoviesListFragment
+import com.example.moviesmvc.R
+import com.example.moviesmvc.screens.movieslist.MoviesListFragment
 
 class MainActivity : AppCompatActivity() {
 
