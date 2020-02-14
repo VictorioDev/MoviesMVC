@@ -31,7 +31,7 @@ class MovieListItemViewMvcImpl(layoutInflater: LayoutInflater, parent: ViewGroup
         getRootView().movie_title.text = movieItem.title
         getRootView().movie_release_date.text = movieItem.release_date
         var imageUrl = IMAGE_PATH_BASE_URL + movieItem.poster_path
-        Log.d("VAZP", imageUrl)
+        Log.d("VAZP", "ID -> ${movieResponse.id}")
         Glide.with(getContext())
             .load(imageUrl)
             .fitCenter()

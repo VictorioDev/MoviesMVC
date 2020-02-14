@@ -1,13 +1,15 @@
 package com.example.moviesmvc.screens.movieslist
 
 import android.widget.Toast
+import com.example.moviesmvc.common.fragment.FragmentFrameHelper
 import com.example.moviesmvc.model.MovieResponse
 import com.example.moviesmvc.screens.movieslist.FetchMoviesUseCase
 import com.example.moviesmvc.screens.movieslist.MovieListViewMvc
 
-class MoviesListController : MovieListViewMvc.Listener, FetchMoviesUseCase.Listener {
+class MoviesListController(
+    private var fetchMoviesUseCase : FetchMoviesUseCase
+    ) : MovieListViewMvc.Listener, FetchMoviesUseCase.Listener {
 
-    var fetchMoviesUseCase = FetchMoviesUseCase()
 
     override fun onMoviesFetched(movies: List<MovieResponse>) {
         mViewMvc.hideProgressIndication()

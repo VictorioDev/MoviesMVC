@@ -10,7 +10,7 @@ import com.example.moviesmvc.model.MovieResponse
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class FetchMoviesUseCase : BaseObservableViewMvc<FetchMoviesUseCase.Listener>(){
+class FetchMoviesUseCase(var movieServiceApi: MoviesServiceApi) : BaseObservableViewMvc<FetchMoviesUseCase.Listener>(){
 
     interface Listener{
         fun onMoviesFetched(movies : List<MovieResponse>)
@@ -19,15 +19,13 @@ class FetchMoviesUseCase : BaseObservableViewMvc<FetchMoviesUseCase.Listener>(){
 
     fun fetchMoviesAndNotify(){
         var movies = arrayListOf<MovieResponse>()
-        var movieServiceApi = MoviesServiceApi.getInstance()
-
         movieServiceApi.getAllMovies()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                     movieResponse ->
                 movieResponse.let {
-                    movies.addAll(movieResponse.results.subList(0,7))
+                    movies.addAll(movieResponse.results)
                     getListeners().forEach {
                         listener -> listener.onMoviesFetched(movies)
                     }

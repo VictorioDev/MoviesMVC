@@ -1,4 +1,4 @@
-package com.example.moviesmvc.screens.movieslist
+package com.example.moviesmvc.screens.moviedetails
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,14 +7,20 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.moviesmvc.common.fragment.BaseFragment
 
-class MoviesListFragment : BaseFragment() {
+class MovieDetailsFragment : BaseFragment(){
 
+    lateinit var mViewMvc : MovieDetailsView
+    lateinit var mController : MovieDetailsController
 
-    lateinit var mViewMvc: MovieListViewMvc
-    lateinit var mController: MoviesListController
 
     companion object {
-        fun getInstance() = MoviesListFragment()
+        fun getInstance(movieId : String) : Fragment {
+            var args = Bundle()
+            args.putString("movie_id", movieId)
+            var movieDetailsFragment = MovieDetailsFragment()
+            movieDetailsFragment.arguments = args
+            return movieDetailsFragment
+        }
     }
 
 
@@ -23,25 +29,19 @@ class MoviesListFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mViewMvc = getControllerDependencyManager().getViewMvcFactory().getMoviesListViewMvc(container)
 
-        mViewMvc.registerListener(activity as MovieListViewMvc.Listener)
-        mController = getControllerDependencyManager().getMoviesListController()
         mController.bindView(mViewMvc)
         return mViewMvc.getRootView()
     }
 
     override fun onStart() {
         super.onStart()
-        mController.onStart()
+        var movieId = arguments?.get("movie_id") as String
+        mController.onStart(movieId)
     }
 
     override fun onStop() {
         super.onStop()
         mController.onStop()
-        mViewMvc.unregisterListener(activity as MovieListViewMvc.Listener)
     }
-
-
-
 }

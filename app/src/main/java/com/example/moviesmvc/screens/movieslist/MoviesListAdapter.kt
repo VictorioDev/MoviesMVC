@@ -1,13 +1,14 @@
 package com.example.moviesmvc.screens.movieslist
 
-import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.moviesmvc.common.factory.ViewMvcFactory
 import com.example.moviesmvc.model.MovieResponse
 import com.example.moviesmvc.screens.movieslist.movielistitem.MovieListItemViewMvc
-import com.example.moviesmvc.screens.movieslist.movielistitem.MovieListItemViewMvcImpl
 
-class MoviesListAdapter(var listener: MoviesListAdapter.Listener) :
+class MoviesListAdapter(
+    private var listener: MoviesListAdapter.Listener,
+    private var mvcViewFactory: ViewMvcFactory) :
     RecyclerView.Adapter<MoviesListAdapter.MoviesListViewHolder>(),
     MovieListItemViewMvc.Listener{
 
@@ -29,9 +30,7 @@ class MoviesListAdapter(var listener: MoviesListAdapter.Listener) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesListViewHolder {
-        movieListItemViewMvcImpl = MovieListItemViewMvcImpl(
-            LayoutInflater.from(parent.context), parent
-        )
+        movieListItemViewMvcImpl = mvcViewFactory.getMoviesListItemViewMvc(parent)
         movieListItemViewMvcImpl.registerListener(this)
         return MoviesListViewHolder(movieListItemViewMvcImpl)
     }
