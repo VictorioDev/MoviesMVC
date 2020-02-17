@@ -10,7 +10,6 @@ interface MovieDetailsView : ObservableViewMvc<MovieDetailsView.Listener> {
         fun onFavoriteClicked(movieId : String)
     }
 
-    fun showSucessFavoriteMessage()
 
     fun bindMovieDetails(movieDetailsResponse: MovieDetailsResponse)
 

@@ -1,39 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fillViewport="true">
 
-    <ScrollView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:visibility="invisible"
+            android:id="@+id/movie_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             android:padding="16dp">
 
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/movie_cover_detail"
+                android:id="@+id/movie_cover"
                 android:layout_width="200dp"
-                android:layout_height="250dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintRight_toRightOf="parent"/>
+                android:layout_height="300dp"
+                android:layout_gravity="center_horizontal"/>
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Budget:"
+                android:textSize="22sp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/movie_budget"
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="R$23000,00"
+                android:textStyle="bold"
+                android:textSize="22sp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Overview:"
+                android:textSize="22sp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/movie_overview"
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="R$23000,00"
+                android:textStyle="bold"
+                android:textSize="22sp"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <ProgressBar
+            android:id="@+id/progress_bar_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            />
+
+    </FrameLayout>
 
 
 
-    </ScrollView>
-
-    <ProgressBar
-        android:id="@+id/progress_details"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"/>
-
-</FrameLayout>
+</ScrollView>

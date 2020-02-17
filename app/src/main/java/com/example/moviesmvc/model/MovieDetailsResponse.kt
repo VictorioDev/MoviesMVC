@@ -5,5 +5,6 @@ data class MovieDetailsResponse(
     val genres: List<Genre>,
     val homepage: String,
     val id: Int,
-    val overview: String
+    val overview: String,
+    val poster_path : String
 )

@@ -15,6 +15,8 @@ class MoviesListFragment : BaseFragment() {
 
     companion object {
         fun getInstance() = MoviesListFragment()
+
+        fun getName() = "FRAGMENT_LIST"
     }
 
 

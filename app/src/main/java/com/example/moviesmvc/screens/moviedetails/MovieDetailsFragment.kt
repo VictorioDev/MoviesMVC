@@ -21,6 +21,7 @@ class MovieDetailsFragment : BaseFragment(){
             movieDetailsFragment.arguments = args
             return movieDetailsFragment
         }
+
     }
 
 
@@ -29,7 +30,8 @@ class MovieDetailsFragment : BaseFragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        mViewMvc = getControllerDependencyManager().getViewMvcFactory().getMovieDetailsViewMvc(container)
+        mController = getControllerDependencyManager().getMovieDetailsController()
         mController.bindView(mViewMvc)
         return mViewMvc.getRootView()
     }

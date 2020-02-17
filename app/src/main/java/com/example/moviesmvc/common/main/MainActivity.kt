@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity(), MovieListViewMvc.Listener {
     lateinit var mFragmentFrameHelper : FragmentFrameHelper
 
     override fun onMovieClicked(movie: MovieResponse) {
-        mFragmentFrameHelper.replaceFragment(MovieDetailsFragment.getInstance(movie.id.toString()))
+        mFragmentFrameHelper.replaceFragment(MovieDetailsFragment.getInstance(movie.id.toString()), null)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity(), MovieListViewMvc.Listener {
         mFragmentFrameHelper = FragmentFrameHelper(mViewMvc, supportFragmentManager)
         setContentView(mViewMvc.getRootView())
         if(savedInstanceState == null){
-            mFragmentFrameHelper.replaceFragment(MoviesListFragment.getInstance())
+            mFragmentFrameHelper.replaceFragment(MoviesListFragment.getInstance(), MoviesListFragment.getName())
         }
 
     }
