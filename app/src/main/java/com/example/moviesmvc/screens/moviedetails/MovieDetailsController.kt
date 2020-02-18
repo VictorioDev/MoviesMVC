@@ -1,6 +1,7 @@
 package com.example.moviesmvc.screens.moviedetails
 
 import android.widget.Toast
+import com.example.moviesmvc.model.MovieDestailsResponse2
 import com.example.moviesmvc.model.MovieDetailsResponse
 
 class MovieDetailsController(private var fetchMovieDetailsUseCase: FetchMovieDetailsUseCase): MovieDetailsView.Listener,
@@ -8,7 +9,7 @@ FetchMovieDetailsUseCase.Listener{
 
     private lateinit var mViewMvc : MovieDetailsView
 
-    override fun onDetailsFetched(movie: MovieDetailsResponse) {
+    override fun onDetailsFetched(movie: MovieDestailsResponse2) {
         mViewMvc.bindMovieDetails(movie)
     }
 

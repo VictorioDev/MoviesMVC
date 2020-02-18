@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:fillViewport="true">
+    >
 
-    <FrameLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:visibility="invisible"
+            android:visibility="visible"
             android:id="@+id/movie_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -53,22 +54,37 @@
                 android:layout_marginTop="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="R$23000,00"
+                tools:text="Teste ettdiwtditwdtiwtdi tdiwt diwtd itwdi twid twidti wtd iw
+dgwkjgdkwgdkwgdkwgdkgwkdgkwgdkwdg"
                 android:textStyle="bold"
                 android:textSize="22sp"/>
 
+
+            <Button
+                android:id="@+id/btn_cast"
+                android:text="Cast"
+                android:textColor="@android:color/white"
+                android:background="@color/colorPrimary"
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
+    </ScrollView>
 
-        <ProgressBar
-            android:id="@+id/progress_bar_details"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            />
+    <ProgressBar
+        tools:visibility="invisible"
+        android:id="@+id/progress_bar_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        />
 
-    </FrameLayout>
+    <ViewStub
+        android:id="@+id/characters_view_stub"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout="@layout/characters_list_2"
+        />
 
-
-
-</ScrollView>
+</FrameLayout>
